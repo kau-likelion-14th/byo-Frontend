@@ -1,0 +1,54 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 50px 100px;
+    background-color: rgba(229, 248, 241, 0.72);
+    font-family: "Paperlogy", sans-serif;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0px;
+    
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.footer-title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.footer-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 24px;
+}
+
+.info-row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    font-size: 13px;
+    color: #666;
+    white-space: nowrap;
+}
