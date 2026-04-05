@@ -1,0 +1,159 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.modal-container {
+    background-color: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+  
+.modal-title, .routine-title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+  
+.modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+  
+.modal-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+  
+.modal-categories {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+  
+.modal-categories label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+  
+.input-wrapper .text-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    outline: none;
+    box-sizing: border-box;
+}
+  
+.routine-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.routine-label {
+    font-size: 18px;
+    font-family: "Paperlogy", sans-serif;
+}
+  
+.routine-button {
+    font-size: 1.5rem;
+    color: #666;
+}
+  
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.leftbutton {
+    flex:1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: white;
+    border: solid #ff6b6b;
+    color: #ff6b6b;
+}
+  
+.rightbutton {
+    flex:1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #5882fa;
+    color: white;
+}
+  
+.routine-close {
+    position: absolute;
+    left: 0;
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+}
+  
+.date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+  
+.date-input {
+    width: 150px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    font-family: "Paperlogy", sans-serif;
+    outline: none;
+}
+  
+.modal-categoryitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.leftbutton2 {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: white;
+    border: solid #5882fa;
+    color: #5882fa;
+}
+  
