@@ -62,7 +62,7 @@ const Todo = ({ selectedDate, todosByDate, setTodosByDate }) => {
             );
         } else { // 2. 새로 추가 모드일 때
             setTodos((prev) => [
-                  ...prev, // ← "기존에 있던 애들 다 데리고 와!" (복사)
+		            ...prev, // ← "기존에 있던 애들 다 데리고 와!" (복사)
                 { id: uid(), text, category, completed: false },
             ]);
         }

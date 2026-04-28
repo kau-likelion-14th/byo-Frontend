@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "../../styles/Todo.css";
 import RoutineModal from "./RoutineModal";
 
-const TodoModal = ({
-    isOpen,
-    onClose,
-    onSave,
-    onDelete,
+const TodoModal = ({ 
+    isOpen, 
+    onClose, 
+    onSave, 
+    onDelete, 
     initialTodo,
+    categories
 }) => {
-    const isEditMode = Boolean(initialTodo);
+    const isEditMode = Boolean(initialTodo); 
 
-    const [category, setCategory] = useState("공부");
+    const [category, setCategory] = useState("공부"); 
     const [text, setText] = useState("");
     const [routine, setRoutine] = useState(null);
 
@@ -28,43 +29,46 @@ const TodoModal = ({
     if (!isOpen) return null;
 
     const handleSave = () => {
-        if (!text.trim()) return;
+        if(!text.trim()) return;
 
-        onSave({
-            text: text.trim(),
+        onSave({ 
+            text: text.trim(), 
             category,
             routine,
         });
     };
 
+    const categoryKeys = Object.keys(categories);
+
     return (
-        <div className="modal-overlay" onClick={onClose}>
-            <div
-                className="modal-container"
+        <div className="modal-overlay" onClick={onClose}> 
+            <div 
+                className="modal-container" 
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-title">
                     {isEditMode ? "할 일 수정하기" : "할 일 추가하기"}
                 </div>
-
                 <div className="modal-section">
                     <div className="modal-label">카테고리</div>
                     <div className="modal-categories">
-                        {["공부", "운동", "동아리"].map((cat) => (
-                            <label key={cat}>
+                        {categoryKeys.map((c) => (
+                            <label
+                                key={c}
+                                className={`modal-categoryitem ${category === c ? 'selected' : ''}`}
+                            >
+                                <span style={categories[c]}>{c}</span> 
                                 <input
                                     type="radio"
                                     name="category"
-                                    value={cat}
-                                    checked={category === cat}
-                                    onChange={() => setCategory(cat)}
+                                    value={c}
+                                    checked={category === c}
+                                    onChange={() => setCategory(c)}
                                 />
-                                {cat}
                             </label>
                         ))}
                     </div>
                 </div>
-
                 <div className="modal-section">
                     <div className="modal-label">내용</div>
                     <div className="input-wrapper">
@@ -77,7 +81,6 @@ const TodoModal = ({
                         />
                     </div>
                 </div>
-
                 <div className="modal-section">
                     <button
                         type="button"
@@ -88,24 +91,22 @@ const TodoModal = ({
                         <div className="routine-button">{"›"}</div>
                     </button>
                 </div>
-
                 <div className="modal-actions">
                     <button
-                        className={`leftbutton ${isEditMode ? "" : "disabled"}`}
+                        className={`leftbutton ${isEditMode ? '' : 'disabled'}`}
                         onClick={onDelete}
                         disabled={!isEditMode}
                     >
                         삭제
                     </button>
                     <button
-                        className={`rightbutton ${text.trim() ? "" : "disabled"}`}
+                        className={`rightbutton ${text.trim() ? '' : 'disabled'}`}
                         onClick={handleSave}
                         disabled={!text.trim()}
                     >
                         저장
                     </button>
                 </div>
-
                 <RoutineModal
                     isOpen={isRoutineModalOpen}
                     initialRoutine={routine}
