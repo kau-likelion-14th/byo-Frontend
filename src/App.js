@@ -1,21 +1,24 @@
 import React from 'react';
+import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './App.css';
-import MainPage from './pages/MainPage/MainPage';
-import { Routes, Route } from 'react-router-dom';
-import FriendPage from './pages/FriendPage/FriendPage';
+import MainPage from './pages/MainPage/Mainpage';
+import MyPage from "./pages/MyPage/MyPage";
+import { Routes, Route, useLocation  } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
   return (
-      <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/friend" element={<FriendPage />} />
-        </Routes>
-        <Footer />
-      </div>
+    <div>
+      {!isLoginPage && <Header />}
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/mypage" element={<MyPage />} />
+      </Routes>
+      {!isLoginPage && <Footer />}
+    </div>
   );
 }
 
