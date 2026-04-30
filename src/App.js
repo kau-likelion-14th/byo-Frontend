@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import './App.css';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, Route } from 'react-router-dom';
+import FriendPage from './pages/FriendPage/FriendPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/friend" element={<FriendPage />} />
         </Routes>
         <Footer />
       </div>
