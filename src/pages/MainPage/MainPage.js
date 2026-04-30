@@ -1,12 +1,15 @@
 import React from "react";
-import CustomCalendar from "./CustomCalendar";
+import CustomCalendar from "./Calendar";
+import Todo from "./Todo";
 
-function MainPage() {
-    return (
-        <div>
-            <CustomCalendar />
-        </div>
-    );
-}
+const MainPage = () => {
+	return ( 
+    <div className="mainpage-container">
+      <CustomCalendar/>
+      <Todo/>
+    </div>
+    
+	);
+};
 
 export default MainPage;
