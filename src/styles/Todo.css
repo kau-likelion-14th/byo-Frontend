@@ -1,0 +1,284 @@
+.todo-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    margin-left: 100px; 
+}
+
+.tile-meta {
+    width: 34px;
+    height: 34px;
+    margin: 5px auto 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.tile-meta.all-done {
+    background-color: #5882fa; /* 파란색 배경으로 변경 */
+    color: white; /* 별 색상을 흰색으로 */
+    box-shadow: 0 2px 5px rgba(88, 130, 250, 0.3);
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.todo-title {
+    font-family: 'Paperlogy', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.todo-add {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.todo-add:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.1);
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 25px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #D1D1D1;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+
+.checkbox.checked {
+    background-color: #5882fa;
+    border-color: #5882fa;
+}
+
+.checkbox.checked::after {
+    content: '✓';
+}
+
+.todo-text {
+    flex: 1;
+    font-family: 'Paperlogy', sans-serif;
+    font-size: 1.1rem;
+    color: #444;
+    text-align: left;
+}
+
+.todo-item.done .todo-text {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.todo-category {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.modal-container {
+    background-color: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+  
+.modal-title, .routine-title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+  
+.modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+  
+.modal-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+  
+.modal-categories {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+  
+.modal-categories label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+  
+.input-wrapper .text-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    outline: none;
+    box-sizing: border-box;
+}
+  
+.routine-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.routine-label {
+    font-size: 18px;
+    font-family: "Paperlogy", sans-serif;
+}
+  
+.routine-button {
+    font-size: 1.5rem;
+    color: #666;
+}
+  
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.leftbutton {
+    flex:1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: white;
+    border: solid #ff6b6b;
+    color: #ff6b6b;
+}
+  
+.rightbutton {
+    flex:1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #5882fa;
+    color: white;
+}
+  
+.routine-close {
+    position: absolute;
+    left: 0;
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+}
+  
+.date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+  
+.date-input {
+    width: 150px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    font-family: "Paperlogy", sans-serif;
+    outline: none;
+}
+  
+.modal-categoryitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.leftbutton2 {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: white;
+    border: solid #5882fa;
+    color: #5882fa;
+}
+  

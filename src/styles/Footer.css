@@ -8,9 +8,11 @@
     background-color: rgba(229, 248, 241, 0.72);
     font-family: "Paperlogy", sans-serif;
     box-sizing: border-box;
-    position: fixed;
-    bottom: 0px;
-    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 48px;
 }
 
 .footer-top {
