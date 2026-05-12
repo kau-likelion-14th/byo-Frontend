@@ -1,6 +1,7 @@
 .friend-page {
     width: 100%;
     min-height: calc(100vh - 120px);
+    margin-top: 80px;
 }
 
 .friend-page__inner {

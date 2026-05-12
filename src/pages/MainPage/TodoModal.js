@@ -47,7 +47,7 @@ const TodoModal = ({
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-title">
-                    {isEditMode ? "할 일 수정하기" : "할 일 추가하기"}
+                    할 일 추가하기
                 </div>
                 <div className="modal-section">
                     <div className="modal-label">카테고리</div>

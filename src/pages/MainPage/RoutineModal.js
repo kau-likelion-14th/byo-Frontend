@@ -11,32 +11,31 @@ const RoutineModal = ({
 }) => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
-    const [repeatDays, setRepeatDays] = useState(null);
+    const [repeatDays, setRepeatDays] = useState([]);
 
     useEffect(() => {
         if (!isOpen) return;
 
         setStartDate(initialRoutine?.startDate || "");
         setEndDate(initialRoutine?.endDate || "");
-        setRepeatDays(initialRoutine?.repeatDays ?? null);
+        setRepeatDays(initialRoutine?.repeatDays ?? []);
     }, [isOpen, initialRoutine]);
 
     if (!isOpen) return null;
 
+    const toggleDay = (idx) => {
+        setRepeatDays(prev =>
+            prev.includes(idx) ? prev.filter(d => d !== idx) : [...prev, idx]
+        );
+    };
+
     const handleSave = () => {
-        onSave({
-            startDate,
-            endDate,
-            repeatDays,
-        });
+        onSave({ startDate, endDate, repeatDays });
     };
 
     return (
         <div className="modal-overlay" onClick={onClose}>
-            <div
-                className="modal-container"
-                onClick={(e) => e.stopPropagation()}
-            >
+            <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                 <div className="routine-header">
                     <div className="routine-close" onClick={onClose}>{"‹"}</div>
                     <div className="routine-title">루틴 등록하기</div>
@@ -51,7 +50,7 @@ const RoutineModal = ({
                             value={startDate}
                             onChange={(e) => setStartDate(e.target.value)}
                         />
-                        <div className="date-initial">{startDate || "없음"}</div>
+                        <span className="date-initial">{startDate || "없음"}</span>
                     </div>
                 </div>
 
@@ -64,7 +63,7 @@ const RoutineModal = ({
                             value={endDate}
                             onChange={(e) => setEndDate(e.target.value)}
                         />
-                        <div className="date-initial">{endDate || "없음"}</div>
+                        <span className="date-initial">{endDate || "없음"}</span>
                     </div>
                 </div>
 
@@ -74,15 +73,13 @@ const RoutineModal = ({
                         {Days.map((day, idx) => (
                             <label
                                 key={day}
-                                className={`modal-categoryitem ${repeatDays === idx ? "on" : ""}`}
+                                className={`modal-categoryitem ${repeatDays.includes(idx) ? "on" : ""}`}
                             >
                                 <span>{day}</span>
                                 <input
-                                    type="radio"
-                                    name="repeatDays"
-                                    value={idx}
-                                    checked={repeatDays === idx}
-                                    onChange={() => setRepeatDays(idx)}
+                                    type="checkbox"
+                                    checked={repeatDays.includes(idx)}
+                                    onChange={() => toggleDay(idx)}
                                 />
                             </label>
                         ))}
